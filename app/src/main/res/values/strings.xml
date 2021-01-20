@@ -10,5 +10,5 @@
     <string name="string_verify_verify">Verify</string>
     <string name="string_main_get_otp">Get OTP</string>
     <string name="string_graph_show_data">Show Graph</string>
-    <string name="string_graph_get_data">Download Data</string>
+    <string name="string_graph_get_data">Fetch Data</string>
 </resources>

@@ -1,19 +1,15 @@
 package com.suraj.orahiassignment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.suraj.orahiassignment.graph.CustomGraph;
@@ -21,7 +17,6 @@ import com.suraj.orahiassignment.utils.DatabaseHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -29,9 +24,9 @@ public class GraphActivity extends AppCompatActivity {
 
     private DatabaseHelper helper;
     private CustomGraph graph;
-    private Button get,set;
-    private ArrayList<Integer> integerArrayList = new ArrayList<>();
-    private ArrayList<String> stringArrayList = new ArrayList<>();
+    private Button get, set;
+    private final ArrayList<Integer> integerArrayList = new ArrayList<>();
+    private final ArrayList<String> stringArrayList = new ArrayList<>();
     private String con_month;
     private TextView notice;
 
@@ -98,17 +93,18 @@ public class GraphActivity extends AppCompatActivity {
                     String stats = jsonArray.getJSONObject(i).getString("stat");
                     helper.addData(con_month,stats);
                     progress.dismiss();
+                    notice.setText("Data downloaded");
 
                 }
 
-                Log.e("DATA FETCHED","DATA INSERTED");
-
             }catch (JSONException exception){
                 progress.dismiss();
-                Log.e("JsonException",exception.toString());
+                notice.setText("Download error");
+                Log.e("JsonException", exception.toString());
             }
         }, error -> {
             progress.dismiss();
+            notice.setText("Download error");
             Log.e("Volley Error", error.getMessage());
         });
 
