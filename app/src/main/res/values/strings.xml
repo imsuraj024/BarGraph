@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Orahi Assignment</string>
+    <string name="string_main_otp_verification">OTP Verification</string>
+    <string name="string_main_we_will_send_you_an_one_time_password_on_this_mobile_number">We will send you an One Time Password on this mobile number.</string>
+    <string name="string_main_enter_mobile_number">Enter Mobile Number</string>
+    <string name="string_main_91">+91-</string>
+    <string name="string_main_hint_1234567890">1234567890</string>
+    <string name="string_verify_enter_otp_sent_to">Enter OTP sent to</string>
+    <string name="string_verify_didn_t_receive_the_otp">Didn\'t receive the OTP?</string>
+    <string name="string_verify_verify">Verify</string>
+    <string name="string_main_get_otp">Get OTP</string>
+    <string name="string_graph_show_data">Show Graph</string>
+    <string name="string_graph_get_data">Download Data</string>
+</resources>
