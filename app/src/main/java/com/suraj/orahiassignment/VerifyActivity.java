@@ -21,7 +21,6 @@ public class VerifyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verify);
 
         otp = getIntent().getStringExtra("otp");
-        Toast.makeText(this, otp, Toast.LENGTH_SHORT).show();
 
         verify = findViewById(R.id.btn_verify_verify_opt);
         one = findViewById(R.id.edit_verify_code_one);
@@ -34,7 +33,25 @@ public class VerifyActivity extends AppCompatActivity {
         setOtp();
 
         verify.setOnClickListener(v -> {
-            startActivity(new Intent(VerifyActivity.this, GraphActivity.class));
+
+            String code_one = one.getText().toString();
+            String code_two = two.getText().toString();
+            String code_three = three.getText().toString();
+            String code_four = four.getText().toString();
+            String code_five = five.getText().toString();
+            String code_six = six.getText().toString();
+
+            if (code_one.isEmpty() || code_two.isEmpty() || code_three.isEmpty() || code_four.isEmpty() || code_five.isEmpty() || code_six.isEmpty()){
+                Toast.makeText(this, "Invalid Code", Toast.LENGTH_SHORT).show();
+            } else {
+                String code = code_one + code_two + code_three + code_four + code_five + code_six;
+                if (code.length() == 6 && code.equals(otp)){
+                    startActivity(new Intent(VerifyActivity.this, GraphActivity.class));
+                } else {
+                    Toast.makeText(this, "Code does not matches", Toast.LENGTH_SHORT).show();
+                }
+            }
+
         });
     }
 
